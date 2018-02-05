@@ -1,0 +1,60 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.10.RELEASE'
+    id 'java'
+    id 'io.franzbecker.gradle-lombok' version '1.11'
+}
+
+version = '0.0.1'
+
+lombok {
+    version = "1.14.8"
+    sha256 = ""
+}
+
+group 'io.github.marcelothebuilder'
+version "${version}"
+
+apply plugin: 'application'
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = "io.github.marcelothebuilder.datasourcepertenant.Application"
+
+jar {
+    baseName = 'datasourcepertenant'
+    version =  "${version}"
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://repo.spring.io/libs-snapshot'
+    }
+}
+
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-logging'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty'
+
+    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
+
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.19'
+
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.2.1.RELEASE'
+
+    compile group: 'org.springframework.security', name: 'spring-security-jwt', version: '1.0.9.RELEASE'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
