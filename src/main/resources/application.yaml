@@ -8,6 +8,9 @@ spring:
 jwt:
   signing-key: b3$Ql^8DBx
 
+management:
+  context-path: /manage
+
 logging:
   level:
     org.springframework: INFO

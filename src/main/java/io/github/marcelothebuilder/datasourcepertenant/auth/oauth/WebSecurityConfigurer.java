@@ -18,7 +18,10 @@ import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher;
 public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/h2-console/**")
+        http.requestMatchers()
+                .antMatchers("/h2-console/**")
+                .antMatchers("/manage/**")
+                .and()
                 .csrf().disable()
                 .httpBasic().disable()
                 .headers().frameOptions().disable()
