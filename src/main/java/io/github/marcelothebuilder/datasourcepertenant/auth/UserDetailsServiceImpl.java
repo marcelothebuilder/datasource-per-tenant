@@ -1,7 +1,7 @@
 package io.github.marcelothebuilder.datasourcepertenant.auth;
 
-import io.github.marcelothebuilder.datasourcepertenant.model.User;
-import io.github.marcelothebuilder.datasourcepertenant.repository.config.UserRepository;
+import io.github.marcelothebuilder.datasourcepertenant.model.common.User;
+import io.github.marcelothebuilder.datasourcepertenant.repository.common.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

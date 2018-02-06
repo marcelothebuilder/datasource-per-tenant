@@ -1,9 +1,9 @@
 package io.github.marcelothebuilder.datasourcepertenant;
 
-import io.github.marcelothebuilder.datasourcepertenant.model.Company;
-import io.github.marcelothebuilder.datasourcepertenant.model.User;
-import io.github.marcelothebuilder.datasourcepertenant.repository.config.CompanyRepository;
-import io.github.marcelothebuilder.datasourcepertenant.repository.config.UserRepository;
+import io.github.marcelothebuilder.datasourcepertenant.model.common.Company;
+import io.github.marcelothebuilder.datasourcepertenant.model.common.User;
+import io.github.marcelothebuilder.datasourcepertenant.repository.common.CompanyRepository;
+import io.github.marcelothebuilder.datasourcepertenant.repository.common.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -25,9 +25,7 @@ public class Startup {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     @Transactional
-    @EventListener(ContextRefreshedEvent.class)
     public void test() {
         log.info("Test!");
 

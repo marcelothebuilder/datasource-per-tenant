@@ -5,15 +5,20 @@ spring:
   h2:
     console:
       enabled: true
-  datasource:
-    url: jdbc:h2:file:~/test
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
 jwt:
   signing-key: b3$Ql^8DBx
 
 logging:
   level:
     org.springframework: INFO
-    org.springframework.security: INFO
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    org.springframework.security.web.FilterChainProxy: DEBUG
+
+app:
+  datasources:
+    common:
+      url: jdbc:h2:~/fillee
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver

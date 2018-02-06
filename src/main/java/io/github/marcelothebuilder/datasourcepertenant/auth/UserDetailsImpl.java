@@ -1,6 +1,6 @@
 package io.github.marcelothebuilder.datasourcepertenant.auth;
 
-import io.github.marcelothebuilder.datasourcepertenant.model.User;
+import io.github.marcelothebuilder.datasourcepertenant.model.common.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,13 +1,15 @@
 package io.github.marcelothebuilder.datasourcepertenant;
 
-import io.github.marcelothebuilder.datasourcepertenant.repository.config.CompanyRepository;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = CompanyRepository.class)
+@EnableAutoConfiguration
+@EnableWebSecurity(debug = true)
 @EnableTransactionManagement
 public class Application {
     public static void main(String[] main) {
