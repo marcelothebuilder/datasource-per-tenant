@@ -23,9 +23,13 @@ public class CompanyResource {
     @Autowired
     private CompanyRepository companyRepository;
 
+    @Autowired
+    private AddressRepository addressRepository;
+
     @GetMapping
     @Transactional
     public Iterable<Company> companies() {
+        addressRepository.findAll();
         return companyRepository.findAll();
     }
 }

@@ -30,4 +30,8 @@ public class Company {
     @NotNull
     @Size(min = 3, max = 30)
     private String name;
+
+    @NotNull
+    @Column(name = "jdbc_connection")
+    private String jdbcConnection;
 }

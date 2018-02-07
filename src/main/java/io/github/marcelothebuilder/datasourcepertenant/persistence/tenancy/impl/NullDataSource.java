@@ -1,26 +1,27 @@
-package io.github.marcelothebuilder.datasourcepertenant.persistence;
+package io.github.marcelothebuilder.datasourcepertenant.persistence.tenancy.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.datasource.AbstractDataSource;
-import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
-import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-@Component
+/**
+ * Does nothing, just logs methods invocation and returns nulls.
+ */
 @Slf4j
-public class MultitenantDataSource extends AbstractDataSource {
+public class NullDataSource extends AbstractDataSource {
 
     @Override
     public Connection getConnection() throws SQLException {
-        log.info("getConntetion");
+        log.debug("NullDataSource Method invoked.");
         return null;
     }
 
     @Override
     public Connection getConnection(String username, String password) throws SQLException {
-        log.info("getConntetion with username pass");
+        log.debug("NullDataSource Method invoked.");
         return null;
     }
 }

@@ -26,11 +26,13 @@ public class Startup {
     private PasswordEncoder passwordEncoder;
 
     @Transactional
+    @EventListener(classes = ContextRefreshedEvent.class)
     public void test() {
-        log.info("Test!");
+        log.info("INITIALIZING DATABASE!!");
 
         Company company = companyRepository.save(Company.builder()
                 .name("MyCompany")
+                .jdbcConnection("jdbc:h2:~/my-company")
                 .build());
 
         User user = userRepository.save(User.builder()

@@ -1,8 +1,10 @@
 package io.github.marcelothebuilder.datasourcepertenant.persistence;
 
+import io.github.marcelothebuilder.datasourcepertenant.model.common.User;
 import io.github.marcelothebuilder.datasourcepertenant.repository.common.CompanyRepository;
 import lombok.val;
 import org.hibernate.cfg.Environment;
+import org.hibernate.dialect.H2Dialect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,7 +46,7 @@ public class PersistenceCommonConfiguration {
     public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() {
         val localContainerEmfb = new LocalContainerEntityManagerFactoryBean();
         localContainerEmfb.setDataSource(dataSource());
-        localContainerEmfb.setPackagesToScan("io.github.marcelothebuilder.datasourcepertenant.model.common");
+        localContainerEmfb.setPackagesToScan(User.class.getPackage().getName());
 
         HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
         localContainerEmfb.setJpaVendorAdapter(jpaVendorAdapter);
@@ -52,8 +54,8 @@ public class PersistenceCommonConfiguration {
 
         Properties jpaProperties = new Properties();
         jpaProperties.setProperty(Environment.HBM2DDL_AUTO, "create-drop");
-        jpaProperties.setProperty(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
-        jpaProperties.setProperty(Environment.SHOW_SQL, "true");
+        jpaProperties.setProperty(Environment.DIALECT, H2Dialect.class.getName());
+        jpaProperties.setProperty(Environment.SHOW_SQL, Boolean.TRUE.toString());
         localContainerEmfb.setJpaProperties(jpaProperties);
 
         return localContainerEmfb;
