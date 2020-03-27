@@ -47,7 +47,7 @@ dependencies {
 
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-jetty'
 
-    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.200'
 
     compile group: 'org.yaml', name: 'snakeyaml', version: '1.19'
 
