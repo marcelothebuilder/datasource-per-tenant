@@ -1,0 +1,23 @@
+version: 2
+updates:
+- package-ecosystem: gradle
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "08:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: org.springframework.boot
+    versions:
+    - 2.4.2
+    - 2.4.3
+    - 2.4.4
+  - dependency-name: junit:junit
+    versions:
+    - 4.13.1
+  - dependency-name: org.yaml:snakeyaml
+    versions:
+    - "1.27"
+  - dependency-name: org.springframework.security.oauth:spring-security-oauth2
+    versions:
+    - 2.5.0.RELEASE
